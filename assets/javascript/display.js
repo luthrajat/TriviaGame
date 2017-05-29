@@ -102,6 +102,7 @@ function initProgressBar() {
      } else {
        $("#id-"+userChoice+"-option").addClass("btn-danger");
        $("#id-"+correctAnswer+"-option").addClass("btn-success");
+       stopwatch.reset();
      }
      setTimeout(handleGameEnd.bind(null, false), delay);
    }
