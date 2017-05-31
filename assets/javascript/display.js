@@ -102,7 +102,6 @@ function initProgressBar() {
      } else {
        $("#id-"+userChoice+"-option").addClass("btn-danger");
        $("#id-"+correctAnswer+"-option").addClass("btn-success");
-       stopwatch.reset();
      }
      setTimeout(handleGameEnd.bind(null, false), delay);
    }
@@ -112,11 +111,11 @@ function initProgressBar() {
  function handleGameEnd(userWon) {
     switch (userWon) {
       case true:
-          gameStatus("You Won!!!");
+          gameStatus("You Won!!! - 6/6.");
           playAudio(GameAudio.AUDIO_CANDIDATE_WIN,false);
           break;
         case false:
-            gameStatus("You Lost!!!");
+            gameStatus("You Lost!!! " + (currentQuestion-2)+"/6.");
             playAudio(GameAudio.AUDIO_CANDIDATE_LEAVE,false);
             break;
       default:

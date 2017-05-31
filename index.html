@@ -1,3 +1,4 @@
+
 <!--
 Copyright (c) 2011-2017 GitHub Inc.
 
@@ -69,14 +70,18 @@ EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   <script type="text/javascript">
       $(document).ready(function() {
         var player = document.getElementById("player");
+          $(document).onkeypress = function(event) {
+            if(event.key=='r' || event.key=='p' || event.key=='s' )
+              playGame(event.key);
+          }
 
-        $(document).on("click", ".option", function() {
+          $(document).on("click", ".option", function() {
             if(allowedTimeoutHandler==0) return; //TODO: Refector
             clearTimeout(allowedTimeoutHandler);
             allowedTimeoutHandler=0;
             playOptionAudio($(this).data("index"));
             setTimeout(checkResults.bind(null, $(this).data("index")), 1000);
-        });
+          });
 
          initGame();
 
